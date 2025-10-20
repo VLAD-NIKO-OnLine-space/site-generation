@@ -5,7 +5,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 import shutil
 import random
 from markupsafe import Markup
-
+import urllib.parse
 
 ROOT = Path(__file__).parent.resolve()
 TEMPLATES_DIR = ROOT / "templates"
@@ -22,6 +22,40 @@ env = Environment(
 )
 
 IMG_EXTS = {".png", ".jpg", ".jpeg", ".webp", ".svg", ".gif", ".avif"}
+GOOGLE_FONTS = [
+    "Manrope", "Inter", "Outfit", "Urbanist", "DM Sans",
+    "Plus Jakarta Sans", "Work Sans", "Rubik", "Nunito Sans", "Poppins"
+]
+
+def pick_random_gfont() -> str:
+    if not GOOGLE_FONTS:
+        return "Inter"
+    return random.choice(GOOGLE_FONTS)
+
+def build_gfonts_href(family: str, weights: list[int] | None = None, italic: bool = False) -> str:
+    """
+    Собирает css2 URL вида:
+    https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap
+    """
+    fam = family.strip()
+    if not weights:
+        weights = [400, 600, 700]
+    weights = sorted({int(w) for w in weights if 100 <= int(w) <= 900})
+
+    # Кодируем имя семейства как в css2: пробелы → +
+    fam_q = urllib.parse.quote_plus(fam)
+
+    if italic:
+        # семейства с италиком: wght,ital@0,400;0,600;1,400...
+        pairs = []
+        for it in (0, 1):
+            for w in weights:
+                pairs.append(f"{it},{w}")
+        axis = "ital,wght@" + ";".join(pairs)
+    else:
+        axis = "wght@" + ";".join(str(w) for w in weights)
+
+    return f"https://fonts.googleapis.com/css2?family={fam_q}:{axis}&display=swap"
 
 def list_images(subdir: str | None) -> list[Path]:
     base = IMAGES_DIR / subdir if subdir else IMAGES_DIR
@@ -187,63 +221,85 @@ def copy_scripts(dist_dir):
 
 def build_site(ctx):
     """
-    Собирает один сайт в dist/<slug-domain>:
-    - плоские поля навигации (site_nav1..5)
-    - рандомная тема (если theme пусто/== 'random')
-    - копирование темы -> style.css и скрипта -> main.js
-    - копирование templates/images -> dist/images
-    - подстановка рандомных картинок для hero (images/Hero)
-    - рендер секций (с поддержкой variant/random в render_sections)
-    - рендер base.html с {{ content | safe }}
+    Собирает сайт в dist/<slug-domain>:
+    - расплющивает навигацию (site_nav1..5)
+    - копирует изображения templates/images -> dist/images
+    - выбирает шрифт Google Fonts (random или заданный), формирует google_fonts_href
+    - выбирает тему (random), копирует её как dist/style.css
+    - задаёт пути ассетов (style_path/script_path) и build_id
+    - рендерит секции (render_sections возвращает Markup)
+    - рендерит base.html и кладёт dist/index.html
+    - копирует scripts/main.js -> dist/main.js
     """
-    # === Директория сайта ===
-    domain = (ctx["site_domain"] or "").strip()
+    # ========= базовые директории =========
+    domain = (ctx.get("site_domain") or "").strip()
+    if not domain:
+        raise ValueError("site_domain is required in context")
     site_dir = DIST / slugify(domain)
     site_dir.mkdir(parents=True, exist_ok=True)
 
-    # === Навигация (плоские поля для текущего base.html) ===
+    # ========= навигация → плоские поля =========
     nav = ctx.get("nav", []) or []
     for i in range(1, 6):
         item = nav[i - 1] if len(nav) >= i else {"label": "", "id": ""}
         ctx[f"site_nav{i}"] = item.get("label", "")
         ctx[f"site_nav{i}_sharp"] = item.get("id", "")
 
-    # === Картинки: копия images и рандом для hero ===
-    hero = ctx.get("hero", {}) or {}
-    if hero:
-        ensure_images_copied(site_dir)  # templates/images -> dist/images (разово)
-        # random / random_from:Hero
-        hero["image_url"] = resolve_random_image(hero.get("image_url"), default_subdir="Hero") or hero.get("image_url")
-        hero["bg_image"]  = resolve_random_image(hero.get("bg_image"),  default_subdir="Hero") or hero.get("bg_image")
-        ctx["hero"] = hero  # вернуть в контекст (на случай pass-by-value)
+    # ========= изображения =========
+    # копируем templates/images → dist/images (разово на сайт)
+    ensure_images_copied(site_dir)
 
-    # === Тема (рандом, если не задана/== 'random') ===
+    # ========= Google Fonts =========
+    font_cfg = ctx.get("font", "random")
+    if isinstance(font_cfg, dict):
+        fam = (font_cfg.get("family") or "random").strip()
+        wts = font_cfg.get("weights") or [400, 600, 700]
+        italic = bool(font_cfg.get("italic", False))
+    else:
+        fam = str(font_cfg or "random").strip()
+        wts = [400, 600, 700]
+        italic = False
+
+    if fam.lower() in ("", "random"):
+        fam = pick_random_gfont()
+
+    if fam not in GOOGLE_FONTS:
+        # мягкий фолбэк, чтобы ссылка не билась
+        print(f"[warn] '{fam}' may be unavailable on Google Fonts. Fallback to 'Manrope'.")
+        fam = "Manrope"
+
+    ctx["google_fonts_href"] = build_gfonts_href(fam, wts, italic)
+    ctx["font_family"] = fam  # используется в <style> для --font-sans при желании
+
+    # ========= тема (CSS) =========
     theme = (ctx.get("theme") or "random").strip().lower()
     if theme in ("", "random"):
         theme = pick_random_theme(include_default=False)
     copy_theme(theme, site_dir)  # кладём выбранную тему как dist/style.css
 
-    # === Пути ассетов в шаблоне ===
-    from time import time
+    # ========= пути ассетов и cache-busting =========
+    from time import time as _now
     ctx["style_path"] = "./style.css"
     ctx["script_path"] = "./main.js"
-    ctx["build_id"] = int(time())  # можно для cache-busting: ?v={{ build_id }}
+    ctx["build_id"] = int(_now())
 
-    # === Контент из секций ===
+    # ========= контент из секций =========
     sections = ctx.get("sections", []) or []
-    content_html = render_sections(sections, ctx)  # возвращает Markup(...)
+    # render_sections должен:
+    #  - поддерживать variant/random для шаблонов
+    #  - резолвить random / random_from:Subdir в данных секции
+    content_html = render_sections(sections, ctx)
     ctx["content"] = content_html
 
-    # === Рендер base.html ===
+    # ========= рендер base.html =========
     base_tpl = env.get_template("base.html")
     html = base_tpl.render(**ctx)
     (site_dir / "index.html").write_text(html, encoding="utf-8")
 
-    # === Скрипты ===
-    copy_scripts(site_dir)  # кладём dist/main.js
+    # ========= скрипты =========
+    copy_scripts(site_dir)  # templates/scripts/main.js -> dist/main.js
 
-    print(f"[ok] {domain} → {site_dir} (theme: {theme})")
-
+    print(f"[ok] {domain} → {site_dir} (theme: {theme}, font: {ctx['font_family']})")
 
 def main():
     manifest = load_manifest(DATA_JSON)

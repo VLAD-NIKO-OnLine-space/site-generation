@@ -2,6 +2,7 @@
   "defaults": {
     "lang": "en-IN",
     "theme": "random",
+    "font": "random",
     "nav": [
       {"label": "Overview", "id": "overview"},
       {"label": "Fixtures", "id": "fixtures"},

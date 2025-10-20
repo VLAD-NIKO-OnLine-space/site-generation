@@ -1,11 +1,11 @@
 :root{
-    --bodyBG: #111;
+    --bodyBG: #222;
     --textColor1: #fff;
     --textColor2: #111;
     
     --maxWidthContainer: 1300px;
-    --secondStyleColor: #e6ff02; 
-    --borderRadius: 16px;
+    --secondStyleColor: #02ff39; 
+    --borderRadius: 12px;
 }
 
 html{
@@ -36,6 +36,7 @@ h1,h2,h3,h4,h5,p{
     margin: 0;
 }
 body{
+    font-family: var(--font-sans);
     background-color: var(--bodyBG);
     color: var(--textColor1);
     font-weight: 500;
