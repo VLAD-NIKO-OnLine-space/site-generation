@@ -364,7 +364,12 @@ section.hero{
     -ms-border-radius: var(--borderRadius);
     -o-border-radius: var(--borderRadius);
 }
-
+.hero .container:not(:has(img)) div {
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
 
 /*   НАСТРОЙКА SCROLL-BAR   */
 ::-webkit-scrollbar {
@@ -394,6 +399,11 @@ section.hero{
     }
     .hero .container div:first-child{
         max-width: 100%;
+    }
+    .hero .container:not(:has(img))  {
+        h1, p{
+            text-align: center;
+        }
     }
  
 }
