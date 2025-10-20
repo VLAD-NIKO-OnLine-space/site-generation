@@ -1,11 +1,11 @@
 :root{
-    --bodyBG: #222;
+    --bodyBG: #111;
     --textColor1: #fff;
     --textColor2: #111;
     
     --maxWidthContainer: 1300px;
-    --secondStyleColor: #02ff39; 
-    --borderRadius: 12px;
+    --secondStyleColor: #e6ff02; 
+    --borderRadius: 16px;
 }
 
 html{
@@ -40,6 +40,7 @@ body{
     background-color: var(--bodyBG);
     color: var(--textColor1);
     font-weight: 500;
+    line-height: 1.2;
 }
 
 .container{
@@ -344,12 +345,13 @@ section.hero{
     -o-border-radius: var(--borderRadius);
 }
 
-.hero .container div:first-child{
+.hero .container div{
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
     max-width: 60%;
 }
+
 
 .hero a{
     width: fit-content;
