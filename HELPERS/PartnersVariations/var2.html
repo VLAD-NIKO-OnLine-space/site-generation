@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section id="expertreview" class="expertreview">
+      <div class="container">
+        <h2>What <span class="highlight">Experts Say</span></h2>
+        <div class="expertReview">
+          <div class="review-card">
+            <p>
+              “Friedman &amp; Moses combine precision with real-world impact. In
+              a field full of promises, they deliver legal strategies that are
+              practical, reliable, and results-driven.”
+            </p>
+            <span>— Sarah Coleman, General Counsel, GlobalTech Inc.</span>
+          </div>
+
+          <div class="review-card">
+            <p>
+              “I’ve worked with many firms over the years. What sets Friedman
+              &amp; Moses apart is their ability to translate complex legal
+              issues into clear, decisive solutions that protect business
+              interests.”
+            </p>
+            <span>— Michael Brown, CEO, Horizon Enterprises</span>
+          </div>
+
+          <div class="review-card">
+            <p>
+              “From corporate structuring to high-stakes litigation, their
+              attorneys balance meticulous preparation with courtroom
+              confidence. They are my go-to reference firm for critical
+              matters.”
+            </p>
+            <span>— Anna Richter, Legal Consultant</span>
+          </div>
+
+          <div class="review-card">
+            <p>
+              “Their global reach is matched by a personal touch. They handled
+              our cross-border negotiations with precision while always keeping
+              our priorities at the center.”
+            </p>
+            <span>— David Kim, International Business Advisor</span>
+          </div>
+
+          <div class="review-card">
+            <p>
+              “Friedman &amp; Moses don’t just focus on winning cases — they
+              build long-term security for clients. Their foresight and strategy
+              create lasting results.”
+            </p>
+            <span>— Laura Martinez, Partner, Venture Capital Group</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      /* ===== Experts (law-firm styling) ===== */
+      .expertreview {
+        background: #fff; /* как и другие секции */
+        padding: 80px 0;
+      }
+      .expertreview h2 {
+        text-align: center;
+        margin-bottom: 2.5rem;
+      }
+      .expertreview .highlight {
+        color: var(--accent, #e0b15a);
+      }
+
+      /* сетка */
+      .expertReview {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      /* ссылки внутри цитат — золотой акцент */
+      .expertReview a {
+        color: var(--accent, #e0b15a);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(224, 177, 90, 0.35);
+      }
+      .expertReview a:hover {
+        border-color: var(--accent, #e0b15a);
+      }
+
+      /* левый штрих у абзаца — тонкий золотой градиент */
+      .expertReview p {
+        border-left: 4px solid transparent;
+        border-image: linear-gradient(
+            180deg,
+            rgba(224, 177, 90, 1),
+            rgba(224, 177, 90, 0.35)
+          )
+          1;
+        padding-left: 18px;
+        margin: 0 0 1rem;
+        font-style: italic;
+      }
+
+      /* автор */
+      .expertReview span {
+        font-style: italic;
+        opacity: 0.7;
+        display: block;
+        text-align: right;
+      }
+
+      /* карточки */
+      .review-card {
+        background: #fff;
+        border: 1px solid var(--border, #e9e9e9);
+        border-radius: var(--radius, 18px);
+        padding: 2rem 2.2rem;
+        box-shadow: var(--shadow, 0 10px 24px rgba(0, 0, 0, 0.08));
+        transition: transform 0.25s ease, box-shadow 0.25s ease,
+          border-color 0.25s ease;
+      }
+      .review-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.14);
+        border-color: var(--accent, #e0b15a);
+      }
+
+      /* 2 колонки на десктопе */
+      @media (min-width: 900px) {
+        .expertReview {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    </style>
+  </body>
+</html>

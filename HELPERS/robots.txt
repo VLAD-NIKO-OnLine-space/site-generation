@@ -1,0 +1,89 @@
+User-agent: *
+Disallow: /
+
+User-agent: ia_archiver
+Disallow: /
+
+User-agent: archive.org_bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: rogerbot
+Disallow: /
+
+User-agent: dotbot
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: SiteAuditBot
+Disallow: /
+
+User-agent: SemrushBot-BA
+Disallow: /
+
+User-agent: SemrushBot-SI
+Disallow: /
+
+User-agent: SemrushBot-SWA
+Disallow: /
+
+User-agent: SemrushBot-CT
+Disallow: /
+
+User-agent: SemrushBot-BM
+Disallow: /
+
+User-agent: SplitSignalBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: serpstatbot
+Disallow: /
+
+User-agent: MegaIndexBot
+Disallow: /
+
+User-agent: SEO-PowerSuite-bot
+Disallow: /
+
+User-agent: spbot
+Disallow: /
+
+User-agent: linkdexbot
+Disallow: /
+
+User-Agent: ZoomBot
+Disallow: /
+
+User-agent: seplinkbot
+Disallow: /
+
+User-agent: LinkpadBot
+Disallow: /
+
+User-agent: RankActiveLinkBot
+Disallow: /
+
+User-agent: AccuRanker
+Disallow: /
+
+User-agent: SiteAnalyzerBot
+Disallow: /
+
+User-agent: similarweb
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: NetcraftSurveyAgent
+Disallow: /

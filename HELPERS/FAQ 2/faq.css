@@ -1,0 +1,159 @@
+[data-accordion-element-content] {
+  overflow: hidden;
+  transition: height .5s;
+}
+
+:root{
+    --bgHead: #0B0C13;
+    --bgHeadHover_active: #FFD53D;
+    --bgText: rgba(255,255,255,.1);
+}
+
+.faq h2{
+  text-align: center;
+}
+.card-faq {
+  width: 90%;
+  margin: 50px auto;
+  border-radius: 2px;
+  background: transparent;
+  
+  margin-top: 40px;
+}
+
+.faq-article {
+  position: relative;
+  transition: all .3s;
+  background-color: transparent;
+  border-radius: 0 0 12px 12px;
+  -webkit-border-radius: 0 0 12px 12px;
+  -moz-border-radius: 0 0 12px 12px;
+  -ms-border-radius: 0 0 12px 12px;
+  -o-border-radius: 0 0 12px 12px;
+  p{
+    padding: 10px 20px;
+  }
+ 
+}
+
+.faq-article.selected {
+  transform: scale(1.1);
+  z-index: 2;
+  background: var(--bgText);
+}
+
+.faq-h3 {
+  position: relative;
+  background: var(--bgHead);
+  padding: 20px 75px 20px 20px;
+  font-size: 20px;
+  line-height: 30px;
+  color: #fff;
+  overflow: hidden;
+  transition: background .3s;
+  margin: 10px 0;
+  cursor: pointer;
+  /* border-top: 1px solid #FFD53D; */
+  /* border-bottom: 1px solid #FFD53D; */
+}
+
+.faq-h3:hover{
+  background-color: rgba(255, 255,255, .05);
+}
+
+
+.selected .faq-h3 {
+  cursor: pointer;
+  background: var(--bgHeadHover_active);
+  color: var(--bgHead);
+  border: none;
+}
+
+.faq-h3:before,
+.faq-h3:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -1px;
+  margin-right: 30px;
+  width: 20px;
+  height: 2px;
+  background: #fff;
+  transition: transform .3s;
+}
+
+.faq-h3:before {
+  transform: rotate(0deg);
+  animation: close-line-one-in .8s forwards;
+}
+
+.selected .faq-h3:before {
+  animation: close-line-one-out .8s forwards;
+  background: #000;
+}
+
+.faq-h3:after {
+  transform: rotate(90deg);
+  animation: close-line-two-in .8s forwards;
+}
+
+.selected .faq-h3:after {
+  background: #000;
+  animation: close-line-two-out .8s forwards;
+}
+
+.content {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all ease-out .4s .1s;
+}
+
+.selected .content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+
+
+.faq-p {
+  padding: 25px 30px 40px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #fff;
+}
+
+@keyframes close-line-one-out {
+  0%, 50% { transform: translateX(0); }
+  75% { transform: translateX(50px); }
+  76% { transform: translateX(50px) translateY(50px); }
+  100% { transform: rotate(45deg); }
+}
+
+@keyframes close-line-one-in {
+  0%, 20% { transform: rotate(45deg); }
+  60% { transform: translateX(50px) translateY(50px) rotate(45deg); }
+  61% { transform: translateX(50px); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes close-line-two-out {
+  0%, 50% { transform: rotate(90deg); }
+  75% { transform: translateY(-50px) rotate(90deg); }
+  76% { transform: translateY(-50px) translateX(50px) rotate(90deg); }
+  100% { transform: rotate(135deg); }
+}
+
+@keyframes close-line-two-in {
+  0% { transform: rotate(135deg); }
+  50% { transform: translateY(-50px) translateX(50px) rotate(135deg); }
+  51% { transform: translateY(-50px) rotate(90deg); }
+  100% { transform: rotate(90deg); }
+}
+
+
+@media screen and (max-width: 750px) {
+  .card-faq{
+    width: 90%;
+  }
+}

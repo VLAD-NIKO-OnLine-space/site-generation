@@ -1,0 +1,43 @@
+<div class="intoLinks">
+            <a href="https://ambientinsight.com/about-us">About Us</a>
+            <span></span>
+            <a href="https://ambientinsight.com/terms-and-conditions"
+              >Terms And Conditions</a
+            >
+            <span></span>
+            <a href="https://ambientinsight.com/privacy-policy"
+              >Privacy Policy</a
+            >
+          </div>
+
+
+<style>
+      .intoLinks {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        text-align: center;
+        span {
+          width: 8px;
+          height: 8px;
+          background-color: #fff;
+          border-radius: 50%;
+        }
+        a {
+          transition: 0.3s all linear;
+          transform-origin: left;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+      }
+      @media screen and (max-width: 750px) {
+        .intoLinks {
+          flex-direction: column;
+          span {
+            display: none;
+          }
+        }
+      }
+    </style>

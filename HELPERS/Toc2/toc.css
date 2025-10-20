@@ -1,0 +1,97 @@
+
+:root{
+    --maxWidthSwiper: 1140px;
+
+    --scrollBarFonColor: #803090;
+    --scrollbarBg: rgba(255,255,255,0.1);
+    
+    --textColor: #a0a0e0;
+    --itemBorderColor: #803090;
+    --itemBgColor: transparent;
+}
+.swiper{
+    padding-bottom: 10px !important;
+}
+
+.toc .swiper-slide{
+    width: fit-content;
+}  
+
+.toc  h2{
+    white-space: nowrap;
+    margin: 0 !important;
+}
+
+.toc{
+    background-color: transparent;
+}
+
+.toc a{
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.5;
+    white-space: nowrap;
+    color: var(--textColor);
+    transition: color 0.3s ease-in-out;
+    -webkit-transition: color 0.3s ease-in-out;
+    -moz-transition: color 0.3s ease-in-out;
+    -ms-transition: color 0.3s ease-in-out;
+    -o-transition: color 0.3s ease-in-out;
+    border: 1px solid var(--itemBorderColor);
+    padding: 10px 20px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    background-color: var(--itemBgColor);
+}
+
+.toc a:active, .toc a:hover, .toc a:focus{
+    color: #fff;
+    background-color: rgba(17, 17, 17, .2);
+}
+
+.toc .swiper-wrapper{
+    padding-top: 20px;
+    padding-bottom: 24px;
+}
+
+.toc-swiper .swiper-scrollbar {
+    background: var(--scrollbarBg);
+    height: 4px;
+    border-radius: 2px;
+}
+
+.toc-swiper .swiper-scrollbar-drag {
+    background: var(--scrollBarFonColor);
+    border-radius: 2px;
+    width: 20%;
+}
+
+.toc.wrapper{
+    margin: 0 auto;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.toc-swiper{
+    max-width: var(--maxWidthSwiper);
+}
+
+.swiper-horizontal>.swiper-scrollbar, .swiper-scrollbar.swiper-scrollbar-horizontal{
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+}
+
+@media screen and (max-width: 750px) {
+    .toc.wrapper{
+        margin-left: auto;
+    }
+    .swiper-horizontal>.swiper-scrollbar, .swiper-scrollbar.swiper-scrollbar-horizontal{
+        width: 90% !important;
+        margin: 0 auto;
+    }
+}

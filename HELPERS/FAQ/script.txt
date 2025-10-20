@@ -1,0 +1,28 @@
+document.querySelectorAll(".faq-question").forEach((btn) => {
+  btn.addEventListener("click", toggleFAQ);
+});
+
+document.querySelectorAll(".faq-answer").forEach((ans) => {
+  ans.addEventListener("click", toggleFAQ);
+});
+
+function toggleFAQ(e) {
+  const target = e.currentTarget;
+  const isQuestion = target.classList.contains("faq-question");
+  const answer = isQuestion ? target.nextElementSibling : target;
+  const question = isQuestion ? target : answer.previousElementSibling;
+
+  const isOpen = answer.classList.contains("open");
+
+  document
+    .querySelectorAll(".faq-answer")
+    .forEach((a) => a.classList.remove("open"));
+  document
+    .querySelectorAll(".faq-question")
+    .forEach((q) => q.classList.remove("active"));
+
+  if (!isOpen) {
+    answer.classList.add("open");
+    question.classList.add("active");
+  }
+}

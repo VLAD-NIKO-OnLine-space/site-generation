@@ -1,0 +1,41 @@
+ <section class="toc wrapper">
+    <div class="container">
+      <h2>Table of Contents</h2>
+    </div>
+    <div class="swiper toc-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <a href="#partners">Partners</a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#movies">New Movies</a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#tv">Best TV Shows</a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#streaming">Streaming</a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#comics">Comics Today</a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#trailers"> New Movies Coming Soon</a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#games">New Games</a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#addictive">The Most Addictive</a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#movies-and-shows"> Movies and Shows</a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#top-industry">Top Players in the Industry</a>
+        </div>
+        <div class="swiper-slide"><a href="#faq">FAQ</a></div>
+      </div>
+      <div class="swiper-scrollbar"></div>
+    </div>
+</section>

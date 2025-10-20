@@ -1,0 +1,99 @@
+
+
+.defaultH1{
+    font-size: 56px !important;
+    line-height: 1.2 !important;
+}
+
+.defaultH2{
+    font-size: 38px !important;
+    text-transform: uppercase;
+}
+
+.defaultH3{
+    font-size: 28px !important;
+}
+
+.defaultH4{
+    font-size: 24px !important; 
+}
+
+.defaultP, li{
+    font-size: 20px !important;
+}
+
+section{
+    padding: 30px 0 !important;
+    margin-bottom: 40px !important;
+}
+
+section h2{
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+}
+
+section h2 + p{
+    margin: 0 !important;
+  margin-bottom: 10px !important; 
+}
+
+
+
+@media screen and (width < 1100px) {
+    .defaultH1{
+        font-size: 50px !important;
+        line-height: 1.2;
+    }
+    .defaultH2{
+        font-size: 44px !important;
+    }
+    .defaultH3{
+        font-size: 24px !important;
+    }
+    .defaultH4{
+        font-size: 20px !important;
+    }
+    .defaultP, li{
+        font-size: 18px !important;
+    }
+
+    section{
+        padding: 20px 0 !important;
+        margin-bottom: 20px !important;
+    }   
+
+    section h2{
+        margin-top: 0 !important;
+        margin-bottom: 20px !important;
+    }
+}
+
+@media screen and (width < 700px) {
+    .defaultH1{
+        font-size: 44px !important;
+    }
+    .defaultH2{
+        font-size: 34px !important;
+    }
+
+}
+
+@media screen and (width < 500px) {
+    .defaultH1{
+        font-size: 40px !important;
+    }
+    .defaultH2{
+        font-size: 30px !important;
+    }
+
+}
+
+@media screen and (width < 380px) {
+    .defaultH1{
+        font-size: 36px !important;
+    }
+    .defaultH2{
+        font-size: 28px !important;
+    }
+
+}

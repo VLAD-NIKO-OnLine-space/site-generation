@@ -1,0 +1,115 @@
+﻿ <section class="faq" id="faq">
+        <div class="container">
+          <div class="section__head">
+            <h2 >
+              Frequently Asked <span class="highlight">Questions</span>
+            </h2>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question active">
+              <h3 >What is Casino and how does it work?</h3>
+            </button>
+            <div class="faq-answer open">
+              <p >
+                Casino is a decentralized crypto gambling platform that blends
+                DeFi mechanics with high-stakes entertainment. Players can
+                wager, earn rewards through liquidity pools, and even spend
+                their winnings using a crypto-powered metal card—no banks
+                involved, no middlemen.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <h3 >Is it secure to play on Casino?</h3>
+            </button>
+            <div class="faq-answer">
+              <p >
+                Security isn’t a gamble here. All gaming and DeFi protocols run
+                on audited smart contracts, with funds locked in non-custodial
+                pools. You keep the keys to your wallet, and the platform keeps
+                centralized risk out of the picture.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <h3 >Which cryptocurrencies are accepted?</h3>
+            </button>
+            <div class="faq-answer">
+              <p >
+                Bitcoin, Ethereum, and a range of top DeFi tokens are all
+                welcome at the table. These can be used for betting, staking, or
+                playing into ’s liquidity mining programs for an extra edge on
+                your digital stack.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <h3 >
+                What’s a cryptocard and how do I get one?
+              </h3>
+            </button>
+            <div class="faq-answer">
+              <p >
+                The cryptocard is your VIP pass to spending crypto in the real
+                world. It’s a tokenized metal debit card tied directly to your
+                wallet. Get yours through the dashboard after KYC and a minimum
+                staking amount—then hit the streets like a high roller.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <h3 >
+                How can I earn passive income with Casino?
+              </h3>
+            </button>
+            <div class="faq-answer">
+              <p >
+                Beyond the slots and blackjack, Casino offers DeFi earning tools
+                like staking, farming, and yield optimization. Just connect your
+                wallet, pick a pool, and let the odds—and APYs—work in your
+                favor while you play or chill.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <h3 >
+                What makes different from other crypto casinos?
+              </h3>
+            </button>
+            <div class="faq-answer">
+              <p >
+                It’s not just about playing—it’s about earning while you do.
+                fuses classic casino games with a full DeFi backend, real-world
+                crypto spendability, and zero centralized control. A single
+                platform that caters to players, investors, and DeFi degens
+                alike.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <h3 >Is Casino beginner-friendly?</h3>
+            </button>
+            <div class="faq-answer">
+              <p >
+                Absolutely. Whether it’s your first spin of the roulette wheel
+                or your first dive into staking, offers step-by-step guidance
+                and a smooth interface. No need to be a DeFi expert—just bring
+                your wallet and your luck.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>

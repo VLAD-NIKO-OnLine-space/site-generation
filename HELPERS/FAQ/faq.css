@@ -1,0 +1,85 @@
+.faq{
+    margin-bottom: 100px;
+}
+.faq-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.faq-section h2 {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 24px;
+  color: #fff;
+}
+
+.faq-item {
+  border-bottom: 2px solid #70CDFF;
+  padding: 12px 0;
+}
+
+.faq h3{
+  margin: 10px 0;
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 0;
+}
+
+.faq-question::after {
+  content: "+";
+  font-size: 32px;
+  transition: transform 0.2s ease;
+  color: #70CDFF;
+  -webkit-transition: transform 0.2s ease;
+  -moz-transition: transform 0.2s ease;
+  -ms-transition: transform 0.2s ease;
+  -o-transition: transform 0.2s ease;
+}
+
+.faq-question.active::after {
+  content: "-";
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  font-size: 15px;
+  color: #fff;
+    p{
+    margin-top: 0;
+  }
+}
+
+.faq-answer.open {
+  max-height: calc-size(fit-content, size, 200px);
+  padding-top: 10px;
+  p{
+    margin-top: 0;
+  }
+}
+
+.reviewsWrapper{
+    h2{
+        margin-bottom: 20px;
+    }
+}
+@media screen and (max-width: 750px) {
+  .faq{
+    margin-bottom: 60px;
+  }
+}

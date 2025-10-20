@@ -1,0 +1,45 @@
+{
+  "defaults": {
+    "lang": "en-IN",
+    "theme": "random",
+    "nav": [
+      {"label": "Overview", "id": "overview"},
+      {"label": "Fixtures", "id": "fixtures"},
+      {"label": "Standings", "id": "standings"},
+      {"label": "Clubs", "id": "clubs"},
+      {"label": "News", "id": "news"}
+    ]
+  },
+  "sites": [
+    {
+      "site_domain": "example-league.com",
+      "title": "Emerald League",
+      "title_description": "Professional Football Season 2025",
+      "meta": "Top-tier football league website optimized for speed.",
+      "theme": "random",
+
+      "nav": [
+        {"label": "Overview", "id": "overview"},
+        {"label": "Fixtures", "id": "fixtures"},
+        {"label": "Standings", "id": "standings"},
+        {"label": "Clubs", "id": "clubs"},
+        {"label": "News", "id": "news"}
+      ],
+
+      "hero": {
+        "hero_bg_image": "random_from:Hero",
+        "hero_bg_alt": "Green stadium lights background",
+        "hero_image_url": "random_from:Hero",
+        "hero_image_url_alt": "Forward in motion",
+        "hero_title": "Emerald League 2025",
+        "hero_subtitle": "Speed, skill, and spectacle — welcome to the new season.",
+        "hero_btn_link": "#tickets",
+        "hero_btn_text": "Buy Tickets"
+      },
+
+      "sections": [
+        {"name": "section.hero", "data": "hero", "variant": "random"}
+      ]
+    }
+  ]
+}

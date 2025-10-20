@@ -1,0 +1,51 @@
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("h1").forEach((p) => p.classList.add("defaultH1"));
+});
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("h2").forEach((p) => p.classList.add("defaultH2"));
+});
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("h3").forEach((p) => p.classList.add("defaultH3"));
+});
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("h4").forEach((p) => p.classList.add("defaultH4"));
+});
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("p").forEach((p) => p.classList.add("defaultP"));
+});
+
+
+ <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Oswald:wght@500&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'" />
+
+
+
+    <link
+      rel="preload"
+      href="./css/bundle.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'" />
+
+
+
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'" />
+
+
+
+=======================================================================
+
+давай сделаем сайт про эту игру
+сделай очень красиво, ярко и запоминающеся, используй графику и тд (если будут картинки оставь их пустысми я свои вставлю)
+делай адаптивно и круто
+сайт на английском языке
+сделай рандомные названия классов, чтобы не попасться что сделано на AI
+header и FAQ не делай, я свои вставлю!
+html, css и js присылай мне отдельно

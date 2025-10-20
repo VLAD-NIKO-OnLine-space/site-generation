@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+  <head>
+    <meta charset="utf-8" />
+    <title>{{title}} - {{title_description}}</title>
+    <meta name="description" content="{{meta}}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="canonical" href="https://{{site_domain}}/" />
+    <!-- <link rel="stylesheet" href="./style_variants/theme-default.css" /> -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container headerWrapper">
+        <a class="logo" href="https://{{site_domain}}/">
+          <span class="logo-text">{{site_domain}}</span>
+        </a>
+        <nav class="nav">
+          <ul>
+            <li>
+              <a href="#{{site_nav1_sharp}}" class="headerNavLink"
+                >{{site_nav1}}</a
+              >
+            </li>
+            <li>
+              <a href="#{{site_nav2_sharp}}" class="headerNavLink"
+                >{{site_nav2}}</a
+              >
+            </li>
+            <li>
+              <a href="#{{site_nav3_sharp}}" class="headerNavLink"
+                >{{site_nav3}}</a
+              >
+            </li>
+            <li>
+              <a href="#{{site_nav4_sharp}}" class="headerNavLink"
+                >{{site_nav4}}</a
+              >
+            </li>
+            <li>
+              <a href="#{{site_nav5_sharp}}" class="headerNavLink"
+                >{{site_nav5}}</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <svg class="ham hamRotate ham7" viewBox="0 0 100 100" width="65">
+          <path
+            class="line top"
+            d="m 70,33 h -40 c 0,0 -6,1.368796 -6,8.5 0,7.131204 6,8.5013 6,8.5013 l 20,-0.0013" />
+          <path class="line middle" d="m 70,50 h -40" />
+          <path
+            class="line bottom"
+            d="m 69.575405,67.073826 h -40 c -5.592752,0 -6.873604,-9.348582 1.371031,-9.348582 8.244634,0 19.053564,21.797129 19.053564,12.274756 l 0,-40" />
+        </svg>
+      </div>
+    </header>
+    <main>{{content | safe}}</main>
+    <!-- <script src="./scripts/main.js"></script> -->
+    <script src="./main.js"></script>
+  </body>
+</html>
