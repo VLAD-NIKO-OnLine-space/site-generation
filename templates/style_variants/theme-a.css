@@ -397,7 +397,7 @@ section.hero{
         display: none;
      
     }
-    .hero .container div:first-child{
+    .hero .container div{
         max-width: 100%;
     }
     .hero .container:not(:has(img))  {

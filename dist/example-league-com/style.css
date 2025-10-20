@@ -1,11 +1,11 @@
 :root{
-    --bodyBG: #111;
+    --bodyBG: #222;
     --textColor1: #fff;
     --textColor2: #111;
     
     --maxWidthContainer: 1300px;
-    --secondStyleColor: #e6ff02; 
-    --borderRadius: 16px;
+    --secondStyleColor: #02ff39; 
+    --borderRadius: 12px;
 }
 
 html{
@@ -352,7 +352,6 @@ section.hero{
     max-width: 60%;
 }
 
-
 .hero a{
     width: fit-content;
     padding: 15px 20px;
@@ -398,7 +397,7 @@ section.hero{
         display: none;
      
     }
-    .hero .container div:first-child{
+    .hero .container div{
         max-width: 100%;
     }
     .hero .container:not(:has(img))  {

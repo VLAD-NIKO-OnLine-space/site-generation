@@ -1,11 +1,11 @@
 :root{
-    --bodyBG: #111;
+    --bodyBG: #222;
     --textColor1: #fff;
     --textColor2: #111;
     
     --maxWidthContainer: 1300px;
-    --secondStyleColor: #e6ff02; 
-    --borderRadius: 16px;
+    --secondStyleColor: #02ff39; 
+    --borderRadius: 12px;
 }
 
 html{
@@ -36,9 +36,11 @@ h1,h2,h3,h4,h5,p{
     margin: 0;
 }
 body{
+    font-family: var(--font-sans);
     background-color: var(--bodyBG);
     color: var(--textColor1);
     font-weight: 500;
+    line-height: 1.2;
 }
 
 .container{
@@ -343,10 +345,10 @@ section.hero{
     -o-border-radius: var(--borderRadius);
 }
 
-.hero .container div:first-child{
+.hero .container div{
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
     max-width: 60%;
 }
 
@@ -362,7 +364,12 @@ section.hero{
     -ms-border-radius: var(--borderRadius);
     -o-border-radius: var(--borderRadius);
 }
-
+.hero .container:not(:has(img)) div {
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
 
 /*   НАСТРОЙКА SCROLL-BAR   */
 ::-webkit-scrollbar {
@@ -392,6 +399,11 @@ section.hero{
     }
     .hero .container div:first-child{
         max-width: 100%;
+    }
+    .hero .container:not(:has(img))  {
+        h1, p{
+            text-align: center;
+        }
     }
  
 }
